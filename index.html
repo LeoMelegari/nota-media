@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: rgb(207, 245, 207);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="../imagens/educ.png" alt="" width="200px">
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Boletim Escolar 2021</h2>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <input type="number" id="nota1" class="form-control" placeholder="Nota 1">
+                <!-- nota 1 -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <input type="number" id="nota2"  class="form-control" placeholder="Nota 2">
+                <!-- nota 2 -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <input type="number" id="nota3" class="form-control" placeholder="Nota 3">
+                <!-- nota 3 -->
+            </div>
+            <div class="col-12 d-grid gap-2 mb-3">
+                <button class="btn btn-success" onclick="media()">Calcular média</button>
+                <!-- button -->
+            </div>
+            <div class="col-12 text-center">
+                <h2 id="res">
+
+                </h2>
+                <!-- resultado -->
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function media() {
+        var nota1 = document.getElementById('nota1').value
+        var nota2 = document.getElementById('nota2').value
+        var nota3 = document.getElementById('nota3').value
+        var nota1 = Number(nota1)
+        var nota2 = Number(nota2)
+        var nota3 = Number(nota3)
+        var nf = ((nota1 + nota2 + nota3) / 3).toFixed(1);
+
+        /* document.getElementById('res').innerHTML = `Sua média final é de <strong>${nf}.</strong>` */
+
+        if(nf < 5) {
+            document.getElementById('res').innerHTML = `Sua média final é <strong>${nf}<br>
+                                                        REPROVADO</strong><br>
+                                                        Você precisa se esforçar mais.`
+        } else if (nf >= 5 && nf < 7) {
+            document.getElementById('res').innerHTML = `Sua média final é <strong>${nf}<br>
+                                                        APROVADO</strong><br>
+                                                        Sua nota foi regular.`
+        } else if (nf >= 7 && nf <= 10) {
+            document.getElementById('res').innerHTML = `Sua média final é <strong>${nf}<br>
+                                                        APROVADO</strong><br>
+                                                        Parabéns, você obteve uma excelente nota final.`
+        } else {
+            document.getElementById('res').innerHTML = `Hummm, algum valor não foi digitado corretamente.<br>
+                                                        Favor verificar.`
+        }
+    }
+</script>
+</html>
